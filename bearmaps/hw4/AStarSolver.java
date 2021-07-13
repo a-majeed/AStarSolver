@@ -2,6 +2,7 @@ package bearmaps.hw4;
 import bearmaps.proj2ab.ArrayHeapMinPQ;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -14,5 +15,17 @@ public class AStarSolver<Vertex> implements ShortestPathsSolver <Vertex> {
     private List<Vertex> solution;           // vertices of the shortest path in order
     private double solutionWeight;           // total weight of the shortest path
     private double timeSpent;                // total time to find the shortest path
+
+}
+
+public ASTarSolver(AStarGraph<Vertex> input, Vertex start, Vertex end, double timeout){
+
+    fringes = new ArrayHeapMinPQ<>();
+    distTo = new HashMap<>();
+    edgeTo = new HashMap<>();
+    solution = new LinkedList<>();
+    numStatesExplored = 0;
+    solutionWeight = 0;
+    timeSpent = 0;
 
 }
