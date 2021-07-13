@@ -1,6 +1,6 @@
 package bearmaps.hw4;
 import bearmaps.proj2ab.ArrayHeapMinPQ;
-
+import java.util.*;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -27,5 +27,36 @@ public ASTarSolver(AStarGraph<Vertex> input, Vertex start, Vertex end, double ti
     numStatesExplored = 0;
     solutionWeight = 0;
     timeSpent = 0;
+
+
+    fringes.add(start, input.estimatedDistancetoGoal(start,end));
+    distTo.put(start, 0.0);
+
+    long startTime = system.currentTimeMillis();
+
+    while (fringes.size() != 0){
+
+        Vertex p = fringes.removeSmallest();
+        timeSpent = (System.currentTimeMillis() - startTime)/1000.0;
+        numStatesExplored++;
+
+        if (p.equal(end)){
+            outcome = SolverOutcome.SOLVED;
+            updateSolution(start, end);
+            solutionWeight = distTo.get(end);
+            return;
+
+        }
+
+        if (timeSpent > timeout){
+            outcome = SolverOutcome.TIMEOUT;
+            return;
+        }
+
+        // need to relax outgoing edges
+
+
+    }
+
 
 }
