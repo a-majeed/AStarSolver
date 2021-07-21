@@ -60,3 +60,24 @@ public ASTarSolver(AStarGraph<Vertex> input, Vertex start, Vertex end, double ti
 
 
 }
+
+
+public void relax(AStarGraph<Vertex> input, Vertex end, Vertex p){
+    List<WeightedEdge<Vertex>> neighbors = input.neighbors(p);
+
+    for(WeightedEdge<Vertex> e : neighbors){
+        double w = e.weight();
+        Vertex q = e.to();
+        if(!distTo.containsKey(q) || distTo.get(p) + w < distTo.get(q)){
+            distTo.put(q, distTo.get(p) + w);
+            edgeTo.put(q,p);
+            if(fringes.contains(q)){
+                fringes.changePriority(q, distTo.get(q) + input.estimatedDistanceToGoal(q,end));
+            }
+            else{
+                fringes.add(q,distTo.get(q) + input.estimatedDistanceToGoal(q,end));
+            }
+        }
+
+    }
+}
