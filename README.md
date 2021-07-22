@@ -16,7 +16,7 @@ Here are different solutions depending on the problem given:
 
 The goal is to find the shortest path. This means to find a path from your start state to your end state with minimal weight (cost).
 
-<img src="images/path.jpg" width="60%" height="40%" />
+<img src="images/path.jpg" width="70%" height="60%" />
 
 ### Integer Hop Puzzle
 
@@ -24,11 +24,11 @@ The goal is to get from a starting integer to a goal integer at a minimum cost.
 
 Possible transitions are as follows:
 
-Add or subtract 1. This costs 1 (i.e. has weight 1).
+* Add or subtract 1. This costs 1 (i.e. has weight 1).
 
-Multiple or divide by 2. This costs 5.
+* Multiple or divide by 2. This costs 5.
 
-Square the number. This costs 10.
+* Square the number. This costs 10.
 
 
 So for example, if we start at 1 and want to get to 5, the lowest cost path is 1 => 2 => 3 => 4 => 5, with a total cost of 4.
@@ -47,7 +47,7 @@ In a Word Ladder puzzle, we try to convert one word in English to another by eit
 Suppose we start with the word “horse” and we want to turn it into “nurse”. To do this, we could perform the following transitions: horse -> hose -> hole -> cole -> core -> cure -> pure -> purse -> nurse, for a total word ladder length of 9 words.
 
 
-<img src="images/wordladder.jpg" width="60%" height="40%" />
+<img src="images/wordladder.jpg" width="70%" height="60%" />
 
 ### Sliding Puzzle
 
