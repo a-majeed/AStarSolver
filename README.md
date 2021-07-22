@@ -13,14 +13,20 @@ All of this is done by using the A* algorithm!
 Here are different solutions depending on the problem given: 
 
 Shortest Path
+
 <img src="images/path.jpg" width="60%" height="40%" />
 
 Integer Hop Puzzle
+
 <img src="images/integerhop.jpg" width="60%" height="40%" />
 
 Word Ladder Puzzle
+
+
 <img src="images/wordladder.jpg" width="60%" height="40%" />
 
 Sliding Puzzle
+
+
 <img src="images/slidingpuzzle.jpg" width="60%" height="40%" />
 
