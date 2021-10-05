@@ -16,6 +16,25 @@ public class AStarSolver<Vertex> implements ShortestPathsSolver <Vertex> {
     private double solutionWeight;           // total weight of the shortest path
     private double timeSpent;                // total time to find the shortest path
 
+    /**
+     * Finds the shortest path from {@code start} to {@code end} of the graph {@code input}
+     * using a* algorithm. Initialize variables and stores the outcome and solution. If the
+     * given timeout {@code timeout} is exceeded, it stops running.
+     *
+     * The A* algorithm:
+     *     Adds the start vertex in the PQ
+     *     If PQ is not empty:
+     *         remove the smallest vertex p from PQ
+     *         if p equals goal:
+     *             the shortest path is found
+     *         else:
+     *         relax all edges outgoing from p
+     *
+     * @param input, the graph
+     * @param start, the start vertex
+     * @param end, the goal vertex
+     * @param timeout, the timeout value
+     */
 
     public ASTarSolver(AStarGraph<Vertex> input, Vertex start, Vertex end, double timeout) {
 
@@ -60,7 +79,17 @@ public class AStarSolver<Vertex> implements ShortestPathsSolver <Vertex> {
         outcome = SolverOutcome.UNSOLVABLE
     }
 
-
+    /**
+     * For all neighbor vertices of {@code p}, adds or updates the priority of the neighbor
+     * vertex q to the {@code fringes} if the distance from start to p + the weight of edge
+     * p-q is less than the previous distance from start to q or if q is never considered to
+     * be relaxed.
+     *
+     * @param input the graph
+     * @param end the goal vertex
+     * @param p the current vertex of which the edges out to be relaxed
+     */
+    
     public void relax(AStarGraph<Vertex> input, Vertex end, Vertex p) {
         List<WeightedEdge<Vertex>> neighbors = input.neighbors(p);
 
@@ -79,7 +108,14 @@ public class AStarSolver<Vertex> implements ShortestPathsSolver <Vertex> {
 
         }
     }
-
+    
+    /**
+     * Stores the vertices of the solution to shortest path in order the the list of vertices
+     * {@code solution}.
+     *
+     * @param start, the start vertex
+     * @param end, the goal vertex
+     */
     public void updateSolution(Vertex start, Vertex end) {
         solution.add(end);
         Vertex curr = end;
